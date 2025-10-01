@@ -1,3 +1,5 @@
+* { font-family: Arial, Helvetica, sans-serif; }
+
 /* Menu Styling */
 body { margin: 0; }
 nav { 
@@ -9,12 +11,12 @@ nav a {
     padding: 14px 16px;
     color: black;
     text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold; }
 nav a:hover { background-color: green; }
 
 /* Main Sections Styling */
-section { margin: 5px; }
+section { margin: 10px; }
+.required { color: red }
 
 /* Footer Styling */
-footer { margin: 5px; }
+footer { margin: 10px; }
