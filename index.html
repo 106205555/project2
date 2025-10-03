@@ -4,8 +4,8 @@
 <!-- Head section: Contains Web title and Metadata -->
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Home page of GrandTech company website">
-    <meta name="keywords" content="GrandTech">
+    <meta name="description" content="Homepage of GrandTech company website">
+    <meta name="keywords" content="GrandTech, home, info">
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Home</title>
     <link rel="stylesheet" href="styles/styles.css">
@@ -14,7 +14,26 @@
 <body>
     <!-- Header section: Top section of the web -->
     <header>
-        <img src="images/GrandTech_logo.png" title="GrandTech Logo" alt="GrandTech Logo" width="100" height="100">
+        <div class="row">
+            <div class="column">
+            <img src="images/GrandTech_logo.png" title="GrandTech Logo" alt="GrandTech Logo" width="100" height="100">
+            </div>
+            <div class="column">
+            <img src="images/images.jpg" title="Banner" alt="Banner" width="400" height=100 class="center">
+            </div>
+            <div class="column">
+            <img id="mirror" src="images/images.jpg" title="Banner" alt="Banner" width="400" height=100 class="center">
+            </div>
+            <div class="column">
+            <img src="images/images.jpg" title="Banner" alt="Banner" width="400" height=100 class="center">
+            </div>
+        </div>
+
+        <div id="mail" class="row">
+            <p>Contact us via e-mail: </p>
+            <a href="mailto:info@grandtech.com.au">info@grandtech.com.au</a>
+        </div>
+
         <nav>
             <a href="index.html">Home</a> 
             <a href="about.html">About</a> 
@@ -27,16 +46,15 @@
     <main>
         <section>
             <h1>About Us</h1>
-            <p></p>
+            <p>The pinnacle of technology.</p>
         </section>
         
         <section>
             <h1>Achievements</h1>
-            <p></p>
+            <p>Winner of Oscar 2025 Awards</p>
         </section>
     </main>
 
-    <!-- Footer section: Bottom section of the web -->
     <footer>
         <hr>
         <p> &copy; 2025 GrandTech. All rights reserved. </p>
