@@ -26,7 +26,7 @@ nav a {
 nav a:hover { background-color: rgb(107, 176, 107) }
 
 /* Main Sections Styling */
-section { margin: 10px }
+main { margin: 10px }
 .required { color: red }
 
 /* Footer Styling */
