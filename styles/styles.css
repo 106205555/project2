@@ -28,6 +28,10 @@ nav a:hover { background-color: rgb(107, 176, 107) }
 /* Main Sections Styling */
 main { margin: 10px }
 .required { color: red }
+ol li { font-weight: bold }
+ol ul li { font-weight: normal }
+dt { font-weight: bold }
+#grphoto { border: 1px solid gray }
 
 /* Footer Styling */
 footer { margin: 10px }
