@@ -1,3 +1,8 @@
+/*
+author: Le Minh Hieu & Nguyen Hoang Duy (Duo Levellers)
+purpose: Provide CSS styling to all 4 html files
+*/
+
 /* General Styling */
 * { font-family: Arial, Helvetica, sans-serif }
 body { background-color: rgb(241, 238, 244); margin: 0 }
@@ -25,13 +30,26 @@ nav a {
   font-weight: bold }
 nav a:hover { background-color: rgb(107, 176, 107) }
 
-/* Main Sections Styling */
-main { margin: 10px }
-.required { color: red }
-ol li { font-weight: bold }
-ol ul li { font-weight: normal }
+/* Main Section Styling */
+main {
+  margin: 50px;
+  text-align: justify;
+  background-image: url(images/GrandTech_logo_bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+   }
+aside {
+  float: right;
+  text-align: center;
+  margin: 50px }
+.clear { clear: right }
+.margintop { margin-top: 100px }
+
+/* Lists Styling */
+#memberlist li { font-weight: bold }
+#memberlist ul li { font-weight: normal }
 dt { font-weight: bold }
-#grphoto { border: 1px solid gray }
 
 /* Table Styling */
 table, th, td {
@@ -39,6 +57,12 @@ table, th, td {
   border-collapse: collapse;
   text-align: center }
 .tablecol { width: 120px }
+
+/* Job Desc */
+.required { color: red }
+
+/* Group Details */
+#grphoto { border: 1px solid gray }
 
 /* Footer Styling */
 footer { margin: 10px }
