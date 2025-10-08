@@ -33,5 +33,12 @@ ol ul li { font-weight: normal }
 dt { font-weight: bold }
 #grphoto { border: 1px solid gray }
 
+/* Table Styling */
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center }
+.tablecol { width: 120px }
+
 /* Footer Styling */
 footer { margin: 10px }
