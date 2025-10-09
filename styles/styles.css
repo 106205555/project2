@@ -34,11 +34,11 @@ nav a:hover { background-color: rgb(107, 176, 107) }
 main {
   margin: 50px;
   text-align: justify;
-  background-image: url(images/GrandTech_logo_bg.png);
+  background-image: url(images/GrandTech_logo_bg.png), url(images/GrandTech_logo_bg0.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-   }
+  background-blend-mode: color }
 aside {
   float: right;
   text-align: center;
