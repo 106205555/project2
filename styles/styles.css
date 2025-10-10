@@ -8,13 +8,11 @@ purpose: Provide CSS styling to all 4 html files
 body { background-color: rgb(241, 238, 244); margin: 0 }
 
 /* Logo, banner & contact info */
-.column img { float: left; display: block; }
-#mail {
-  position: absolute;
-  top: 4px;
-  right: 20px;
-  font-size: 18px }
-#mirror { transform: scaleX(-1) }
+img { float: left; display: block; }
+.column {float: left}
+#mail {text-align: center;
+margin-left: 25px;}
+
 
 /* Nav Bar Styling */
 nav { 
