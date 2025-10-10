@@ -11,7 +11,8 @@ body { background-color: rgb(241, 238, 244); margin: 0 }
 img { float: left; display: block; }
 .column {float: left}
 #mail {text-align: center;
-margin-left: 25px;}
+margin-left: 25px;
+font-size: auto;}
 
 
 /* Nav Bar Styling */
