@@ -42,15 +42,20 @@ main {
 .margintop { margin-top: 100px }
 
 /* Lists Styling */
-#memberlist li { font-weight: bold }
+#memberlist li { font-weight: bold;}
 #memberlist ul li { font-weight: normal }
 dt { font-weight: bold }
+#sid {float: right; clear: both;}
 
 /* Table Styling */
-table, th, td {
+table, th, td { 
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center }
+th:hover{background-color: #f8fad7;}
+td:hover{background-color: #f8fad7;}
 .tablecol { width: 120px }
 
 /* Illustration Pic Styling */
@@ -86,10 +91,23 @@ legend { font-weight: bold }
 #reset:hover { background-color: rgb(170, 0, 0) }
 
 /* Group Details */
-#grphoto { border: 1px solid gray }
+aside {float: right;}
+#png { border: 1px solid gray;
+  float: right;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;}
+#png::after{ content: "";
+  clear: both;
+  display: table;}
+  #grph {border: 1px solid black;}
+#ab{float: left;
+clear: left;}
 
 /* Footer Styling */
 footer { margin: 10px }
 #footlink {
   float: right;
   text-align: right }
+
+
