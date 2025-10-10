@@ -39,10 +39,6 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
   background-blend-mode: color }
-aside {
-  float: right;
-  text-align: center;
-  margin: 50px }
 .clear { clear: right }
 .margintop { margin-top: 100px }
 
@@ -58,6 +54,13 @@ table, th, td {
   text-align: center }
 .tablecol { width: 120px }
 
+/* Illustration Pic Styling */
+.illupic {
+  float: right;
+  text-align: center;
+  margin: 50px }
+.illupic figcaption { margin-top: 10px }
+
 /* Job Desc */
 .required { color: red }
 
@@ -66,3 +69,6 @@ table, th, td {
 
 /* Footer Styling */
 footer { margin: 10px }
+#footlink {
+  float: right;
+  text-align: right }
