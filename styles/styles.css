@@ -39,7 +39,7 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
   background-blend-mode: color }
-.clear { clear: right }
+.clear { clear: both }
 .margintop { margin-top: 100px }
 
 /* Lists Styling */
@@ -63,6 +63,28 @@ table, th, td {
 
 /* Job Desc */
 .required { color: red }
+
+/* Job Application */
+form { min-width: 41em }
+fieldset {
+  margin-bottom: 30px;
+  border-color: orange; }
+input, select, option {
+  margin-right: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px }
+legend { font-weight: bold }
+#submit, #reset {
+  float: right;
+  display: block;
+  margin-bottom: 60px;
+  padding: 6px;
+  font-size: 1em;
+  font-weight: bold }
+#submit { background-color: lime }
+#submit:hover { background-color: rgb(0, 180, 0) }
+#reset { background-color: red }
+#reset:hover { background-color: rgb(170, 0, 0) }
 
 /* Group Details */
 #grphoto { border: 1px solid gray }
