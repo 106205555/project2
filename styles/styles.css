@@ -37,8 +37,8 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
   background-blend-mode: color }
+section { margin-bottom: 100px }
 .clear { clear: both }
-.margintop { margin-top: 100px }
 
 /* Lists Styling */
 #memberlist li { font-weight: bold }
@@ -57,9 +57,16 @@ table, th, td {
   float: right;
   text-align: center;
   margin: 50px }
-.illupic figcaption { margin-top: 10px }
 
 /* Job Desc */
+h1 { font-size: 2.5em }
+aside {
+  float: right;
+  width: 25%;
+  border: 3px dashed red;
+  padding: 0 10px;
+  margin-top: 50px }
+aside h2 { text-align: center }
 .required { color: red }
 
 /* Job Application */
@@ -92,3 +99,6 @@ footer { margin: 10px }
 #footlink {
   float: right;
   text-align: right }
+#descfoot {
+  text-align: center;
+  font-size: small }
