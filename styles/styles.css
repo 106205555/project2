@@ -8,12 +8,11 @@ purpose: Provide CSS styling to all 4 html files
 body { background-color: rgb(241, 238, 244); margin: 0 }
 
 /* Logo, banner & contact info */
-img { float: left; display: block; }
+header img { float: left; display: block; }
 .column {float: left}
 #mail {text-align: center;
 margin-left: 25px;
 font-size: auto;}
-
 
 /* Nav Bar Styling */
 nav { 
@@ -30,7 +29,7 @@ nav a {
 nav a:hover { background-color: rgb(107, 176, 107) }
 
 /* Main Section Styling */
-main {
+main, article {
   margin: 50px;
   text-align: justify;
   background-image: url(images/GrandTech_logo_bg.png), url(images/GrandTech_logo_bg0.png);
@@ -38,14 +37,17 @@ main {
   background-repeat: no-repeat;
   background-size: contain;
   background-blend-mode: color }
+article { min-width: 50em }
 section { margin-bottom: 100px }
 .clear { clear: both }
 
 /* Lists Styling */
-#memberlist li { font-weight: bold;}
+#classinfo, #memberlist {display: inline-block}
+#memberlist li { font-weight: bold }
 #memberlist ul li { font-weight: normal }
+#memberlist ul li::marker { content: "+ " }
 dt { font-weight: bold }
-#sid {float: right; clear: both;}
+ol, ul { text-align: left }
 
 /* Table Styling */
 table, th, td { 
@@ -54,15 +56,15 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center }
-th:hover{background-color: #f8fad7;}
-td:hover{background-color: #f8fad7;}
-.tablecol { width: 120px }
+th, td {background-color: #fbffb0; width: 120px;}
+th:hover, td:hover{background-color: #f4ff26;}
 
 /* Illustration Pic Styling */
 .illupic {
   float: right;
   text-align: center;
   margin: 50px }
+.illupic figcaption { margin-top: 5px }
 
 /* Job Desc */
 h1 { font-size: 2.5em }
@@ -85,6 +87,9 @@ input, select, option {
   margin-top: 5px;
   margin-bottom: 5px }
 legend { font-weight: bold }
+#extra {
+  margin-top: 5px;
+  font-size: 1em }
 #submit, #reset {
   float: right;
   display: block;
@@ -98,29 +103,18 @@ legend { font-weight: bold }
 #reset:hover { background-color: rgb(170, 0, 0) }
 
 /* Group Details */
-aside {float: right;}
-#png { border: 1px solid gray;
-  float: right;
-  margin: 20px;
-  padding: 10px;
-  text-align: center;}
-#png::after{ content: "";
-  clear: both;
-  display: table;}
-  #grph {border: 1px solid black;}
-#ab{float: left;
-clear: left;}
+#abtpage section { text-align: center; margin-bottom: 30px }
+#ourclass, #contributions { clear: both; float: left }
+#members, #png { float: right }
+#ourclass, #contributions, #members, #png { width: 46% }
+#grph {border: 2px solid black;}
 
 /* Footer Styling */
-footer { margin: 10px }
+footer { margin-top: 90px }
+#homefoot { margin: 10px }
 #footlink {
   float: right;
   text-align: right }
-<<<<<<< HEAD
-
-
-=======
 #descfoot {
   text-align: center;
   font-size: small }
->>>>>>> 2ba43d952dd5acedb5bff6645ff0d135c20eba4b
