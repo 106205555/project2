@@ -11,8 +11,7 @@ body { background-color: rgb(241, 238, 244); margin: 0 }
 header img { float: left; display: block; }
 .column {float: left}
 #mail {text-align: center;
-margin-left: 25px;
-font-size: auto;}
+margin-left: 25px;}
 
 /* Nav Bar Styling */
 nav { 
@@ -29,15 +28,16 @@ nav a {
 nav a:hover { background-color: rgb(107, 176, 107) }
 
 /* Main Section Styling */
-main, article {
+main {
   margin: 50px;
+  min-width: 50em;
   text-align: justify;
   background-image: url(images/GrandTech_logo_bg.png), url(images/GrandTech_logo_bg0.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   background-blend-mode: color }
-article { min-width: 50em }
+#formmain { min-width: 41em }
 section { margin-bottom: 100px }
 .clear { clear: both }
 
