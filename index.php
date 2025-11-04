@@ -13,25 +13,7 @@
 
 <body>
     <!-- Header section: Top section of the web -->
-    <header>
-        <div class="column">
-            <img src="images/GrandTech_logo.png" title="GrandTech Logo" alt="GrandTech Logo" width="100" height="100">
-        </div>
-        <div class="column">
-            <img id="banner" src="images/7E95A2E0-185F-4C72-8F71-460A1BBA1FFD.webp" title="Banner" alt="Banner" width="1200" height="100">
-        </div>
-        <div class="column" id="mail">
-            <p>Contact us via e-mail: </p>
-            <a href="mailto:info@grandtech.com.au">info@grandtech.com.au</a>
-        </div>
-
-        <nav>
-            <a href="index.html">Home</a> 
-            <a href="about.html">About</a> 
-            <a href="jobs.html">Positions</a> 
-            <a href="apply.html">Application</a>
-        </nav>
-    </header>
+    <?php include 'header.inc'; ?>
 
     <!-- Main section: Contains the main content of the web -->
     <main>
@@ -66,9 +48,7 @@
     <footer id="homefoot">
         <hr>
         <div id="footlink">
-            <p> GitHub link: <a href="https://github.com/106205555/project1" target="_blank">Click here</a> </p>
-            <p> Jira link: <a href="https://leminhhieu9907.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog" target="_blank">Click here</a> </p>
-            <p>Image source: <a href="https://news.cornell.edu" target="_blank">Click here</a></p>
+            <p> GitHub link: <a href="https://github.com/106205555/project2" target="_blank">Click here</a> </p>
         </div>
         <p> &copy; 2025 GrandTech. All rights reserved. </p>
     </footer>

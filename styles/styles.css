@@ -5,13 +5,18 @@ purpose: Provide CSS styling to all 4 html files
 
 /* General Styling */
 * { font-family: Arial, Helvetica, sans-serif }
-body { background-color: rgb(241, 238, 244); margin: 0 }
+body { 
+  background-color: rgb(241, 238, 244); 
+  margin: 0 }
 
 /* Logo, banner & contact info */
-header img { float: left; display: block; }
+header img { 
+  float: left; 
+  display: block; }
 .column {float: left}
-#mail {text-align: center;
-margin-left: 25px;}
+#mail {
+  text-align: center;
+  margin-left: 25px;}
 
 /* Nav Bar Styling */
 nav { 
@@ -56,7 +61,9 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center }
-th, td {background-color: #fbffb0; width: 120px;}
+th, td {
+  background-color: #fbffb0; 
+  width: 120px;}
 th:hover, td:hover{background-color: #f4ff26;}
 
 /* Illustration Pic Styling */
@@ -103,8 +110,12 @@ legend { font-weight: bold }
 #reset:hover { background-color: rgb(170, 0, 0) }
 
 /* Group Details */
-#abtpage section { text-align: center; margin-bottom: 30px }
-#ourclass, #contributions { clear: both; float: left }
+#abtpage section { 
+  text-align: center; 
+  margin-bottom: 30px }
+#ourclass, #contributions { 
+  clear: both; 
+  float: left }
 #members, #png { float: right }
 #ourclass, #contributions, #members, #png { width: 46% }
 #grph {border: 2px solid black;}
