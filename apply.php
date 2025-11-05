@@ -19,7 +19,7 @@
     <main id="formmain">
         <h1>Application Form</h1>
         <p>Please fill in your details carefully.</p>
-        <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+        <form method="post" action="process_eoi.php" novalidate="novalidate">
             <fieldset>
                 <legend>Personal details</legend>
                 <p>
@@ -49,10 +49,10 @@
                 <legend>Address information</legend>
                 <p>
                     <label for="street">Street address</label>
-                    <input type="text" id="street" name="streetadr"
+                    <input type="text" id="street" name="street"
                            pattern=".{1,40}" required>
                     <label for="town">Suburb/town</label>
-                    <input type="text" id="town" name="suburb/town"
+                    <input type="text" id="town" name="town"
                            pattern=".{1,40}" required>
                 </p>
                 <p>
@@ -106,7 +106,7 @@
                         <label for="java">JavaScript</label>
 				        <input type="checkbox" id="java" name="prglang" value="java" checked="checked">
                         <label for="c">C/C++</label>
-				        <input type="checkbox" id="c" name="prglang" value="c/c++" checked="checked">
+				        <input type="checkbox" id="c" name="prglang" value="c" checked="checked">
                         <label for="python">Python</label>
 				        <input type="checkbox" id="python" name="prglang" value="python">
                     </p>
