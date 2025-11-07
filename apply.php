@@ -37,11 +37,11 @@
                 <fieldset>
                     <legend>Gender</legend>
                     <label for="male">Male</label>
-                    <input type="radio" id="male" name="gender" value="male" required>
+                    <input type="radio" id="male" name="gender" value="Male" required>
                     <label for="female">Female</label>
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="Female">
                     <label for="other">Other</label>
-                    <input type="radio" id="other" name="gender" value="other">
+                    <input type="radio" id="other" name="gender" value="Other">
                 </fieldset>
             </fieldset>
 
@@ -100,15 +100,15 @@
                     <p>Programming languages:</p>
                     <p>
                         <label for="html">HTML</label>
-				        <input type="checkbox" id="html" name="prglang" value="html">
+				        <input type="checkbox" id="html" name="prglang" value="HTML">
                         <label for="css">CSS</label>
-				        <input type="checkbox" id="css" name="prglang" value="css">
+				        <input type="checkbox" id="css" name="prglang" value="CSS">
                         <label for="java">JavaScript</label>
-				        <input type="checkbox" id="java" name="prglang" value="java" checked="checked">
+				        <input type="checkbox" id="java" name="prglang" value="Java" checked="checked">
                         <label for="c">C/C++</label>
-				        <input type="checkbox" id="c" name="prglang" value="c" checked="checked">
+				        <input type="checkbox" id="c" name="prglang" value="C/C++" checked="checked">
                         <label for="python">Python</label>
-				        <input type="checkbox" id="python" name="prglang" value="python">
+				        <input type="checkbox" id="python" name="prglang" value="Python">
                     </p>
                 </fieldset>
                 <p>

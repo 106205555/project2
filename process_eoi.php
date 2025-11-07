@@ -44,6 +44,10 @@
         // Extracts and sanitizes data received from form
         $firstname = clean_input($conn, $_POST["firstname"]);
         $lastname = clean_input($conn, $_POST["lastname"]);
+        $dob = clean_input($conn, $_POST["dob"]);
+        if(isset($_POST["gender"])) {
+            $gender = clean_input($conn, $_POST["gender"]);
+        }
         $street = clean_input($conn, $_POST["street"]);
         $town = clean_input($conn, $_POST["town"]);
         $state = clean_input($conn, $_POST["state"]);
@@ -51,7 +55,7 @@
         $email = clean_input($conn, $_POST["email"]);
         $phone = clean_input($conn, $_POST["phone"]);
         $jobrefnum = clean_input($conn, $_POST["jobrefnum"]);
-        if(isset($prglang)) {
+        if(isset($_POST["prglang"])) {
             $prglang = clean_input($conn, $_POST["prglang"]);
         }
         $otherskills = clean_input($conn, $_POST["otherskills"]);
@@ -69,6 +73,14 @@
             $errors[] = "Last name: Must not exceed 20 alpha characters.";
         }
 
+        if(empty($dob)) {
+            $missings[] = "Date of birth";
+        }
+
+        if(empty($gender)) {
+            $missings[] = "Gender";
+        }
+
         if(empty($street)) {
             $missings[] = "Street address";
         } elseif(strlen($street) > 40) {
@@ -77,7 +89,7 @@
 
         if(empty($town)) {
             $missings[] = "Suburb/town";
-        } elseif(strlen($street) > 40) {
+        } elseif(strlen($town) > 40) {
             $errors[] = "Suburb/town: Must not exceed 40 characters.";
         }
 
@@ -99,7 +111,7 @@
 
         if(empty($phone)) {
             $missings[] = "Phone number";
-        } elseif(!preg_match("/^[A-Za-z]{1,20}$/", $phone)) {
+        } elseif(!preg_match("/^[\d\s]{8,12}$/", $phone)) {
             $errors[] = "Phone number: Must contain 8 to 12 digits, or spaces.";
         }
 
@@ -111,12 +123,23 @@
             $missings[] = "Programming languages";
         }
 
+        if(strlen($otherskills) > 100) {
+            $errors[] = "Other skills: Must not exceed 100 characters.";
+        }
+
         // Checks for errors and inserts data into table
         if(empty($missings) && empty($errors)) {
-            echo "<p>Please confirm your details:</p>";
+            $eoiquery3 = "
+                INSERT INTO eoi (job_id, first_name, last_name, street, town, state, postcode, email, phone, programming_lang, otherskills)
+                VALUES ('".$jobrefnum."', '".$firstname."', '".$lastname."', '".$street."', '".$town."', '".$state."', '".$postcode."', '".$email."', '".$phone."', '".$prglang."', '".$otherskills."')";
+            $eoiinsert = mysqli_query($conn, $eoiquery3);
+            echo "<h1>Submission Complete</h1>";
+            echo "<p>Thank you for your submission! You can check your details below:</p>";
             echo "<ul>";
             echo "<li>First name: ".$firstname."</li>";
             echo "<li>Last name: ".$lastname."</li>";
+            echo "<li>Date of birth: ".$dob." (yyyy-mm-dd)</li>";
+            echo "<li>Gender: ".$gender."</li>";
             echo "<li>Street address: ".$street."</li>";
             echo "<li>Suburb/town: ".$town."</li>";
             echo "<li>State: ".$state." (Postcode: ".$postcode.")</li>";
@@ -124,7 +147,13 @@
             echo "<li>Phone number: ".$phone."</li>";
             echo "<li>Job reference number: ".$jobrefnum."</li>";
             echo "<li>Programming language(s): ".$prglang."</li>";
+            if(empty($otherskills)) {
+                echo "<li>Other skill(s): None</li>";
+            } else {
+                echo "<li>Other skill(s): ".$otherskills."</li>";
+            }
             echo "</ul>";
+
         } elseif(isset($missings)) {
             echo "<p>Please fill in all required fields:</p>";
             echo "<p>Missing required field(s):</p>";
@@ -133,6 +162,7 @@
                 echo "<li>".$missing."</li>";
             }
             echo "</ul>";
+
         } else {
             echo "<p><strong>Error</strong></p>";
             echo "<p>Please check the following field(s) again:</p>";
