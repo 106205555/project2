@@ -115,7 +115,7 @@
             </ul>
         </section>
 
-        <p><em>Ready to apply for a position?</em> <a href="apply.html">Apply now</a></p>
+        <p><em>Ready to apply for a position?</em> <a href="apply.php">Apply now</a></p>
     </main>
 
     <!-- Footer section: Bottom section of the web -->
