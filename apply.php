@@ -8,7 +8,7 @@
     <meta name="keywords" content="GrandTech, apply, form">
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Apply</title>
-    <link rel="stylesheet" href="styles/styles.css?v=2">
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>

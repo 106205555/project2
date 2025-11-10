@@ -34,7 +34,7 @@
                 postcode INT,
                 email VARCHAR(50),
                 phone VARCHAR(12),
-                programming_lang VARCHAR(6),
+                programming_lang VARCHAR(50),
                 otherskills VARCHAR(100),
                 status VARCHAR(7)
                 )";
@@ -55,8 +55,12 @@
         $email = clean_input($conn, $_POST["email"]);
         $phone = clean_input($conn, $_POST["phone"]);
         $jobrefnum = clean_input($conn, $_POST["jobrefnum"]);
-        if(isset($_POST["prglang"])) {
-            $prglang = clean_input($conn, $_POST["prglang"]);
+        if(isset($_POST["prglang"]) && is_array($_POST["prglang"])) {
+            $cleaned_langs = array();
+            foreach($_POST["prglang"] as $lang) {
+                $cleaned_langs[] = clean_input($conn, $lang);
+            }
+            $prglang = implode(", ", $cleaned_langs);
         }
         $otherskills = clean_input($conn, $_POST["otherskills"]);
 
