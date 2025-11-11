@@ -134,8 +134,8 @@
         // Checks for errors and inserts data into table
         if(empty($missings) && empty($errors)) {
             $eoiquery3 = "
-                INSERT INTO eoi (job_id, first_name, last_name, street, town, state, postcode, email, phone, programming_lang, otherskills)
-                VALUES ('".$jobrefnum."', '".$firstname."', '".$lastname."', '".$street."', '".$town."', '".$state."', '".$postcode."', '".$email."', '".$phone."', '".$prglang."', '".$otherskills."')";
+                INSERT INTO eoi (job_id, first_name, last_name, street, town, state, postcode, email, phone, programming_lang, otherskills, status)
+                VALUES ('".$jobrefnum."', '".$firstname."', '".$lastname."', '".$street."', '".$town."', '".$state."', '".$postcode."', '".$email."', '".$phone."', '".$prglang."', '".$otherskills."', 'New')";
             $eoiinsert = mysqli_query($conn, $eoiquery3);
             echo "<h1>Submission Complete</h1>";
             echo "<p>Thank you for your submission! You can check your details below:</p>";

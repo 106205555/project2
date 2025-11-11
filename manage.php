@@ -24,8 +24,8 @@
                 <input type="radio" id="job" name="eoiaction" value="listjob">
                 <label for="job">List all EOIs for a particular position:
                     <br>
-                    <label for="refnum">Job reference number:</label> 
-                    <select name="jobrefnum" id="refnum">
+                    <label for="refnum1">Job reference number:</label> 
+                    <select name="jobrefnum1" id="refnum1">
                         <option value="">Please Select</option>
                         <option value="SP101">SP101 - IT Support Technician</option>
                         <option value="DV201">DV201 - Software Developer</option>
@@ -46,8 +46,8 @@
                 <input type="radio" id="delete" name="eoiaction" value="deletejob">
                 <label for="delete">Delete all EOIs for a particular position:
                     <br>
-                    <label for="refnum">Job reference number:</label> 
-                    <select name="jobrefnum" id="refnum">
+                    <label for="refnum2">Job reference number:</label> 
+                    <select name="jobrefnum2" id="refnum2">
                         <option value="">Please Select</option>
                         <option value="SP101">SP101 - IT Support Technician</option>
                         <option value="DV201">DV201 - Software Developer</option>
@@ -72,7 +72,7 @@
             </fieldset>
 
             <br>
-            <input type="submit" value="Search database">
+            <input type="submit" value="Execute">
         </form>
     </main>
 
