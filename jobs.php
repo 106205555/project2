@@ -7,7 +7,7 @@
     <meta name="description" content="Describes various available positions at GrandTech company">
     <meta name="keywords" content="GrandTech, jobs, positions">
     <meta name="author" content="Duo Levellers">
-    <title>GrandTech - Positions</title>
+    <title>GrandTech - Careers</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -17,6 +17,10 @@
 
     <!-- Main section: Contains the main content of the web -->
     <main>
+        <?php
+        require_once("settings.php")
+        ?>
+
         <aside>
             <h2>Important notice</h2>
             <p><em>Please note that application will be closed before 15 Oct 2025, so please apply now to ensure your opportunity.</em></p>
@@ -35,84 +39,80 @@
 
         <!-- IT Support Technician section -->
         <section id="itsup">
-            <h2>1. IT Support Technician</h2>
-            <p>As an IT Support Technician, you are expected to provide aid to users and organizations technically and make sure their computer systems, software, and devices run smoothly.</p>
-            <p>Essential position details:</p>
-            <ul>
-                <li>Job reference number: <strong>SP101</strong></li>
-                <li>Salary range: $350-550 per month</li>
-                <li>Responsibilities:
-                    <ul>
-                    <li>Respond to support requests via phone, email, chat, or in person.</li>
-                    <li>Install, configure, and repair desktops, laptops, and peripherals (printers, scanners, monitors).</li>
-                    <li>Update and patch software.</li>
-                    <li>Check and fix basic network issues.</li>
-                    <li>Stay patient and professional, even with frustrated users.</li>
-                    </ul>
-                </li>
-                <li>Requirements:
-                    <ul>
-                    <li><strong>Education:</strong> Bachelor’s degree in IT, computer science, or related fields. <strong class="required">(essential)</strong></li>
-                    <li><strong>Technical Knowledge:</strong> Hardware, software and networking basics. <strong class="required">(essential)</strong></li>
-                    <li><strong>Soft Skills:</strong> Communication, problem-solving, patience, time management. <strong>(preferrable)</strong></li>
-                    <li><strong>Experience:</strong> 1+ year of related work experience. <strong>(preferrable)</strong></li>
-                    </ul>
-                </li>
-            </ul>
+            <?php
+            $query1 = "SELECT * FROM jobs WHERE job_id = 'SP101'";
+            $result1 = mysqli_query($conn, $query1);
+            $sp101 = mysqli_fetch_assoc($result1);
+
+            echo "<h2>1. ".$sp101['name']."</h2>";
+            echo "<p>".$sp101['brief_desc']."</p>";
+            echo "<p>Essential position details:</p>";
+            echo "<ul>";
+            echo "<li>Job reference number: <strong>".$sp101['job_id']."</strong></li>";
+            echo "<li>Salary range: ".$sp101['salary']." per month</li>";
+            echo "<li>Responsibilities:";
+            echo "<ul>".$sp101['responsibilities']."</ul>";
+            echo "</li>";
+            echo "<li>Requirements:<ul>";
+            echo "<li><strong>Education:</strong> ".$sp101['education']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Technical Knowledge:</strong> ".$sp101['knowledge']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Soft Skills:</strong> ".$sp101['soft_skills']." <strong>(preferrable)</strong></li>";
+            echo "<li><strong>Experience:</strong> ".$sp101['experience']." <strong>(preferrable)</strong></li>";
+            echo "</ul></li>";
+            echo "</ul>";
+            ?>
         </section>
 
         <!-- Software Developer section -->
         <section id="swdev">
-            <h2>2. Software Developer</h2>
-            <p>As a Software Developer, you are responsible for maintaining and improving the company's <strong>GrandTech Hub</strong> application.</p>
-            <p>Essential position details:</p>
-            <ul>
-                <li>Job reference number: <strong>DV201</strong></li>
-                <li>Salary range: $400-900 per month</li>
-                <li>Responsibilities:
-                    <ul>
-                    <li>Find and fix bugs in the app.</li>
-                    <li>Improve app performance, security, and scalability.</li>
-                    <li>Update existing features when requirements change.</li>
-                    <li>Participate in code reviews to ensure quality.</li>
-                    </ul>
-                </li>
-                <li>Requirements:
-                    <ul>
-                    <li><strong>Education:</strong> Bachelor’s degree in IT, computer science, or related fields. <strong class="required">(essential)</strong></li>
-                    <li><strong>Technical Knowledge:</strong> JavaScript and C/C++ knowledge. <strong class="required">(essential)</strong></li>
-                    <li><strong>Soft Skills:</strong> Problem-solving, logical thinking, teamwork, adaptability. <strong>(preferrable)</strong></li>
-                    <li><strong>Experience:</strong> 1+ year of related work experience. <strong>(preferrable)</strong></li>
-                    </ul>
-                </li>
-            </ul>
+            <?php
+            $query2 = "SELECT * FROM jobs WHERE job_id = 'DV201'";
+            $result2 = mysqli_query($conn, $query2);
+            $dv201 = mysqli_fetch_assoc($result2);
+
+            echo "<h2>2. ".$dv201['name']."</h2>";
+            echo "<p>".$dv201['brief_desc']."</p>";
+            echo "<p>Essential position details:</p>";
+            echo "<ul>";
+            echo "<li>Job reference number: <strong>".$dv201['job_id']."</strong></li>";
+            echo "<li>Salary range: ".$dv201['salary']." per month</li>";
+            echo "<li>Responsibilities:";
+            echo "<ul>".$dv201['responsibilities']."</ul>";
+            echo "</li>";
+            echo "<li>Requirements:<ul>";
+            echo "<li><strong>Education:</strong> ".$dv201['education']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Technical Knowledge:</strong> ".$dv201['knowledge']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Soft Skills:</strong> ".$dv201['soft_skills']." <strong>(preferrable)</strong></li>";
+            echo "<li><strong>Experience:</strong> ".$dv201['experience']." <strong>(preferrable)</strong></li>";
+            echo "</ul></li>";
+            echo "</ul>";
+            ?>
         </section>
 
         <!-- Cybersecurity Specialist section -->
         <section id="cysec">
-            <h2>3. Cybersecurity Specialist</h2>
-            <p>As a Cybersecurity Specialist, you are responsible for protecting computer systems, networks, and data from cyber threats such as hacking, malware, data breaches, and insider threats.</p>
-            <p>Essential position details:</p>
-            <ul>
-                <li>Job reference number: <strong>SC302</strong></li>
-                <li>Salary range: $400-700 per month</li>
-                <li>Responsibilities:
-                    <ul>
-                    <li>Track network traffic for unusual or malicious activity.</li>
-                    <li>Respond to real-time threats (e.g. intrusion attempts, ransomware).</li>
-                    <li>Manage access controls.</li>
-                    <li>Identify vulnerabilities in systems and applications.</li>
-                    </ul>
-                </li>
-                <li>Requirements:
-                    <ul>
-                    <li><strong>Education:</strong> Bachelor’s degree in IT, computer science, or related fields. <strong class="required">(essential)</strong></li>
-                    <li><strong>Technical Knowledge:</strong> Networking basics, security tools, risk assessment and incident response skills. <strong class="required">(essential)</strong></li>
-                    <li><strong>Soft Skills:</strong> Analytical thinking, problem-solving under pressure, communication, adaptability. <strong>(preferrable)</strong></li>
-                    <li><strong>Experience:</strong> 2+ years of related work experience. <strong>(preferrable)</strong></li>
-                    </ul>
-                </li>
-            </ul>
+            <?php
+            $query3 = "SELECT * FROM jobs WHERE job_id = 'SC302'";
+            $result3 = mysqli_query($conn, $query3);
+            $sc302 = mysqli_fetch_assoc($result3);
+
+            echo "<h2>3. ".$sc302['name']."</h2>";
+            echo "<p>".$sc302['brief_desc']."</p>";
+            echo "<p>Essential position details:</p>";
+            echo "<ul>";
+            echo "<li>Job reference number: <strong>".$sc302['job_id']."</strong></li>";
+            echo "<li>Salary range: ".$sc302['salary']." per month</li>";
+            echo "<li>Responsibilities:";
+            echo "<ul>".$sc302['responsibilities']."</ul>";
+            echo "</li>";
+            echo "<li>Requirements:<ul>";
+            echo "<li><strong>Education:</strong> ".$sc302['education']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Technical Knowledge:</strong> ".$sc302['knowledge']." <strong class='required'>(essential)</strong></li>";
+            echo "<li><strong>Soft Skills:</strong> ".$sc302['soft_skills']." <strong>(preferrable)</strong></li>";
+            echo "<li><strong>Experience:</strong> ".$sc302['experience']." <strong>(preferrable)</strong></li>";
+            echo "</ul></li>";
+            echo "</ul>";
+            ?>
         </section>
 
         <p><em>Ready to apply for a position?</em> <a href="apply.php">Apply now</a></p>
