@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Duo Levellers">
-    <title>GrandTech - Form Submission</title>
+    <title>GrandTech - Apply</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 

@@ -120,7 +120,7 @@ label {
 }
 
 /* Input Styling */
-input[type="text"], input[type="date"], input[type="email"], select, textarea {
+input[type="text"], input[type="date"], input[type="email"], input[type="password"], select, textarea {
   box-sizing: border-box;
   width: 100%;
   padding: 14px 16px;
@@ -129,7 +129,7 @@ input[type="text"], input[type="date"], input[type="email"], select, textarea {
   border-bottom: 2px solid #5a5f6a;
   background: transparent;
 }
-input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus, select:focus, textarea:focus { outline: none; }
+input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus, textarea:focus { outline: none; }
 
 /* Radio & Checkbox Container */
 .radio-group, .checkbox-group {

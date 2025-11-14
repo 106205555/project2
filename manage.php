@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Management</title>
+    <link rel="stylesheet" href="styles/manage_styles.css">
 </head>
 
 <body>
