@@ -17,6 +17,10 @@
     <main>
         <?php
         require_once("settings.php");
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             // Checks if an EOI action has been selected
@@ -263,6 +267,8 @@
             $data = mysqli_real_escape_string($conn, $data);
             return $data;
         }
+
+        mysqli_close($conn);
         ?>
     </main>
 

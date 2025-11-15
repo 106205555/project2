@@ -17,6 +17,10 @@
     <main>
     <?php
     require_once("settings.php");
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
         // Checks if there is a table named 'eoi'. If not, creates one.
@@ -177,7 +181,7 @@
             echo "</ul>";
         }
     } else {
-        header('Location: index.php');
+        header('Location: apply.php');
     }
 
     // Data sanitation function
@@ -188,6 +192,8 @@
         $data = mysqli_real_escape_string($conn, $data);
         return $data;
     }
+
+    mysqli_close($conn);
     ?>
     </main>
 

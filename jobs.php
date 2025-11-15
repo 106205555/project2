@@ -18,7 +18,11 @@
     <!-- Main section: Contains the main content of the web -->
     <main>
         <?php
-        require_once("settings.php")
+        require_once("settings.php");
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
         ?>
 
         <aside>
@@ -116,6 +120,7 @@
         </section>
 
         <p><em>Ready to apply for a position?</em> <a href="apply.php">Apply now</a></p>
+        <?php mysqli_close($conn); ?>
     </main>
 
     <!-- Footer section: Bottom section of the web -->

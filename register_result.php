@@ -18,6 +18,10 @@
         <?php
         session_start();
         require_once("settings.php");
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
 
         if($_SERVER["REQUEST_METHOD"] == "POST") {
             // Sanitizes user input
@@ -32,10 +36,14 @@
             $email = clean_input($conn, $_POST["email"]);
 
             // Validates data
+            $query = "SELECT * FROM user_data WHERE username = '$username'";
+            $result = mysqli_query($conn, $query);
             if(empty($username)) {
                 $missings[] = "Username";
             } elseif(strlen($username) > 20 || strlen($username) < 8) {
                 $errors[] = "Username: Must be between 8-20 characters long.";
+            } elseif(mysqli_num_rows($result) > 0) {
+                $errors[] = "Username: Already taken. Please <a href='login.php'>log in</a> or use a different username.";
             }
 
             if(empty($password)) {
@@ -106,6 +114,8 @@
             $data = mysqli_real_escape_string($conn, $data);
             return $data;
         }
+
+        mysqli_close($conn);
         ?>
     </main>
 
