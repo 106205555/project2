@@ -86,6 +86,12 @@ main {
   flex: 1;
   padding: 30px;
 }
+.dashboard-main h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 28px;
+}
 
 /* Dashboard statistics cards */
 .stats-grid {
@@ -119,6 +125,7 @@ main {
   border: 1px solid #e0e0e0;
   padding: 25px;
   margin-bottom: 30px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 .section-header {
   margin-bottom: 20px;
@@ -173,6 +180,65 @@ main {
 .quick-actions a:hover {
   background-color: #445f7a;
 }
+
+/* List EOIs tab */
+.list-option {
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  color: #2c3e50;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.list-option:hover {
+  background: #e9ecef;
+  border-color: #3498db;
+}
+.list-option-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.list-option-desc {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #34495e;
+  font-size: 14px;
+}
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  background-color: white;
+  font-size: 14px;
+}
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bdc3c7;
+  box-sizing: border-box;
+  background-color: white;
+  font-size: 16px;
+}
+.btn-submit {
+  padding: 12px 30px;
+  background: #2c3e50;
+  color: white;
+  border: 1px solid #2c3e50;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-submit:hover {background-color: #445f7a;}
 
 /* Footer Styling */
 footer { margin-top: 90px }

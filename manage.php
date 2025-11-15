@@ -23,9 +23,6 @@
                     <a href="manage.php" class="active">Dashboard</a>
                 </li>
                 <li>
-                    <a href="search.php" class="inactive">Search EOIs</a>
-                </li>
-                <li>
                     <a href="list.php" class="inactive">List EOIs</a>
                 </li>
                 <li>
@@ -77,6 +74,8 @@
             if ($jobs_result && $row = mysqli_fetch_assoc($jobs_result)) {
                 $job_count = $row['job_count'];
             }
+
+            mysqli_close($conn);
             ?>
 
             <!-- Statistics Cards -->
