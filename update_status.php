@@ -39,7 +39,7 @@
             <div class="dashboard-main">
                 <h1>Update EOI Status</h1>
                 
-                <form method="post" action="manage_queryresult_new.php" novalidate="novalidate">
+                <form method="post" action="manage_queryresult.php" novalidate="novalidate">
                     <input type="hidden" name="eoiaction" value="updstatus">
                     <div class="dashboard-section">
                         <div class="section-header">

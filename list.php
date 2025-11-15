@@ -58,7 +58,7 @@
                     <div class="section-header">
                         <h2 class="section-title">List by Job Position</h2>
                     </div>
-                    <form method="post" action="manage_queryresult.php">
+                    <form method="post" action="manage_queryresult.php" novalidate>
                         <input type="hidden" name="eoiaction" value="listjob">
                         <div class="form-group">
                             <label for="jobrefnum1">Job Reference Number</label>

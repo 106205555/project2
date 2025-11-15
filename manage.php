@@ -136,9 +136,9 @@
                         <h2 class="section-title">Quick Actions</h2>
                     </div>
                     <div class="quick-actions">
-                        <a href="search.php">Search EOIs</a>
-                        <a href="list.php">List All</a>
-                        <a href="manage.php">Legacy Mode</a>
+                        <a href="list.php">List EOIs</a>
+                        <a href="update_status.php">Update Status</a>
+                        <a href="delete_eois.php">Delete EOIs</a>
                     </div>
                 </div>
 
