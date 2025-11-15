@@ -15,70 +15,136 @@
 
     <!-- Main section: Contains the main content of the web -->
     <main>
-        <form method="post" action="manage_queryresult.php" novalidate="novalidate">
-            <fieldset>
-                <legend>Database actions</legend>
+        <!-- Left Sidebar Navigation -->
+        <div class="dashboard-sidebar">
+            <h3 class="sidebar-header">Navigation</h3>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="manage.php" class="active">Dashboard</a>
+                </li>
+                <li>
+                    <a href="search.php" class="inactive">Search EOIs</a>
+                </li>
+                <li>
+                    <a href="list.php" class="inactive">List EOIs</a>
+                </li>
+                <li>
+                    <a href="update_status.php" class="inactive">Update Status</a>
+                </li>
+                <li>
+                    <a href="delete_eois.php" class="inactive">Delete EOIs</a>
+                </li>
+            </ul>
+        </div>
 
-                <input type="radio" id="all" name="eoiaction" value="listall" required>
-                <label for="all">List all EOIs</label>
-                <br><br>
-                <input type="radio" id="job" name="eoiaction" value="listjob">
-                <label for="job">List all EOIs for a particular position:
-                    <br>
-                    <label for="refnum1">Job reference number:</label> 
-                    <select name="jobrefnum1" id="refnum1">
-                        <option value="">Please Select</option>
-                        <option value="SP101">SP101 - IT Support Technician</option>
-                        <option value="DV201">DV201 - Software Developer</option>
-                        <option value="SC302">SC302 - Cybersecurity Specialist</option>
-                    </select>
-                </label>
-                <br><br>
-                <input type="radio" id="applicant" name="eoiaction" value="listapplicant">
-                <label for="applicant">List all EOIs for a particular applicant:
-                    <br>
-                    <label for="firstname">First Name:</label>
-                    <input type="text" id="firstname" name="firstname" pattern="[A-Za-z]{1,20}">
-                    <br>
-                    <label for="lastname">Last Name:</label>
-                    <input type="text" id="lastname" name="lastname" pattern="[A-Za-z]{1,20}">
-                </label>
-                <br><br>
-                <input type="radio" id="delete" name="eoiaction" value="deletejob">
-                <label for="delete">Delete all EOIs for a particular position:
-                    <br>
-                    <label for="refnum2">Job reference number:</label> 
-                    <select name="jobrefnum2" id="refnum2">
-                        <option value="">Please Select</option>
-                        <option value="SP101">SP101 - IT Support Technician</option>
-                        <option value="DV201">DV201 - Software Developer</option>
-                        <option value="SC302">SC302 - Cybersecurity Specialist</option>
-                    </select>
-                </label>
-                <br><br>
-                <input type="radio" id="updstatus" name="eoiaction" value="updstatus">
-                <label for="updstatus">Change the Status of an EOI:
-                    <br>
-                    <label for="eoi">EOI ID:</label>
-                    <input type="number" id="eoi" name="eoiid">
-                    <br>
-                    <label for="status">Status:</label>
-                    <select id="status" name="status">
-                        <option value="">Please Select</option>
-                        <option value="New">New</option>
-                        <option value="Current">Current</option>
-                        <option value="Final">Final</option>
-                    </select>
-                </label>
-            </fieldset>
+        <!-- Main Dashboard Content -->
+        <div class="dashboard-main">
+            <h1>EOI Management Dashboard</h1>
+            
+            <!-- Get statistics -->
+            <?php
+            require_once("settings.php");
+            $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
 
-            <br>
-            <input type="submit" value="Execute">
-        </form>
+            // Get eoi count
+            $total_eois = 0;
+            $new_eois = 0;
+            $current_eois = 0;
+            $final_eois = 0;
+
+            $stats_query = "SELECT 
+                COUNT(*) as total,
+                SUM(CASE WHEN status = 'New' THEN 1 ELSE 0 END) as new_count,
+                SUM(CASE WHEN status = 'Current' THEN 1 ELSE 0 END) as current_count,
+                SUM(CASE WHEN status = 'Final' THEN 1 ELSE 0 END) as final_count
+                FROM eoi";
+
+            $stats_result = mysqli_query($conn, $stats_query);
+            if ($stats_result && $row = mysqli_fetch_assoc($stats_result)) {
+                $total_eois = $row['total'];
+                $new_eois = $row['new_count'];
+                $current_eois = $row['current_count'];
+                $final_eois = $row['final_count'];
+            }
+
+            // Get job positions count
+            $jobs_query = "SELECT COUNT(DISTINCT job_id) as job_count FROM eoi";
+            $jobs_result = mysqli_query($conn, $jobs_query);
+            $job_count = 0;
+            if ($jobs_result && $row = mysqli_fetch_assoc($jobs_result)) {
+                $job_count = $row['job_count'];
+            }
+            ?>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-title">Total EOIs</div>
+                    <div class="stat-card-value"><?php echo $total_eois; ?></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">New Status</div>
+                    <div class="stat-card-value"><?php echo $new_eois; ?></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Current Status</div>
+                    <div class="stat-card-value"><?php echo $current_eois; ?></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Final Status</div>
+                    <div class="stat-card-value"><?php echo $final_eois; ?></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Job Positions</div>
+                    <div class="stat-card-value"><?php echo $job_count; ?></div>
+                </div>
+            </div>
+
+            <!-- Recent Activity Section -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Activity</h2>
+                </div>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-label">New EOIs</div>
+                            <div class="activity-value"><?php echo $new_eois; ?> Items</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-label">Current EOIs</div>
+                            <div class="activity-value"><?php echo $current_eois; ?> Items</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-info">
+                            <div class="activity-label">Finalized EOIs</div>
+                            <div class="activity-value"><?php echo $final_eois; ?> Items</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2 class="section-title">Quick Actions</h2>
+                </div>
+                <div class="quick-actions">
+                    <a href="search.php">Search EOIs</a>
+                    <a href="list.php">List All</a>
+                    <a href="manage.php">Legacy Mode</a>
+                </div>
+            </div>
+
+            <!-- Footer section: Bottom section of the web -->
+            <?php include 'footer.inc'; ?>
+        </div>
     </main>
-
-    <!-- Footer section: Bottom section of the web -->
-    <?php include 'footer.inc'; ?>
-    
 </body>
 </html>
