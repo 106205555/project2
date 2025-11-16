@@ -1,0 +1,210 @@
+/* Fixing body styles */
+body {
+    display: block !important;
+    background: inherit !important;
+    min-height: auto !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    padding: 0 !important;
+}
+
+/* Main styling of submission page */
+.submission-main {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: calc(100vh - 200px); 
+}
+
+.submission-wrapper {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background: transparent;
+}
+
+.submission-container {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent; 
+}
+
+/* Success page styling */
+.success-card {
+    background: white;
+    border-radius: 16px;
+    padding: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.success-icon {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.success-icon svg {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.success-icon circle {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.success-icon path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawCheck 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes drawCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.success-card h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.success-card .subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #4CAF50;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detail-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.detail-item .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7f8c8d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-item .value {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 500;
+    word-break: break-word;
+}
+
+.button {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.button .btn {
+    padding: 15px 35px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.button .btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.button .btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+/* Failed page styling */
+.error-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.error-container h2 {
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.error-container .error-list {
+    text-align: left;
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.error-container .error-list li {
+    margin: 10px 0;
+    color: #555;
+}
+
+.error-icon svg {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.error-icon circle {
+    animation: scaleIn 0.6s ease-out;
+}
+
+.error-icon path {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: drawX 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes drawX {
+    to {
+        stroke-dashoffset: 0;
+    }
+}

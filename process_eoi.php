@@ -7,6 +7,8 @@
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Apply</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/eoi.css">
 </head>
 
 <body>
@@ -17,12 +19,11 @@
     <main>
     <?php
     require_once("settings.php");
-
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
         // Checks if there is a table named 'eoi'. If not, creates one.
         $eoiquery1 = "SHOW TABLES LIKE 'eoi'";
@@ -142,44 +143,134 @@
                 INSERT INTO eoi (job_id, first_name, last_name, street, town, state, postcode, email, phone, programming_lang, otherskills, status)
                 VALUES ('".$jobrefnum."', '".$firstname."', '".$lastname."', '".$street."', '".$town."', '".$state."', '".$postcode."', '".$email."', '".$phone."', '".$prglang."', '".$otherskills."', 'New')";
             $eoiinsert = mysqli_query($conn, $eoiquery3);
-            echo "<h1>Submission Complete</h1>";
-            echo "<p>Thank you for your submission! You can check your details below:</p>";
-            echo "<ul>";
-            echo "<li>First name: ".$firstname."</li>";
-            echo "<li>Last name: ".$lastname."</li>";
-            echo "<li>Date of birth: ".$dob." (yyyy-mm-dd)</li>";
-            echo "<li>Gender: ".$gender."</li>";
-            echo "<li>Street address: ".$street."</li>";
-            echo "<li>Suburb/town: ".$town."</li>";
-            echo "<li>State: ".$state." (Postcode: ".$postcode.")</li>";
-            echo "<li>Email address: ".$email."</li>";
-            echo "<li>Phone number: ".$phone."</li>";
-            echo "<li>Job reference number: ".$jobrefnum."</li>";
-            echo "<li>Programming language(s): ".$prglang."</li>";
-            if(empty($otherskills)) {
-                echo "<li>Other skill(s): None</li>";
-            } else {
-                echo "<li>Other skill(s): ".$otherskills."</li>";
-            }
-            echo "</ul>";
+            echo '
+            <div class="submission-container">
+                <div class="success-card">
+                    <div class="success-icon">
+                        <svg width="80" height="80" viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="45" fill="#4CAF50" opacity="0.2"/>
+                            <path d="M30 50 L45 65 L70 35" stroke="#4CAF50" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    
+                    <h1>Submission Complete</h1>
+                    <p class="subtitle">Thank you for your submission! You can check your details below:</p>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">First name</span>
+                            <span class="value">'.$firstname.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Last name</span>
+                            <span class="value">'.$lastname.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Date of birth</span>
+                            <span class="value">'.$dob.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Gender</span>
+                            <span class="value">'.$gender.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Street address</span>
+                            <span class="value">'.$street.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Suburb/town</span>
+                            <span class="value">'.$town.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">State</span>
+                            <span class="value">'.$state.' (Postcode: '.$postcode.')</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Email address</span>
+                            <span class="value">'.$email.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Phone number</span>
+                            <span class="value">'.$phone.'</span>
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="label">Job reference number</span>
+                            <span class="value">'.$jobrefnum.'</span>
+                        </div>
+                        
+                        <div class="detail-item full-width">
+                            <span class="label">Programming language(s)</span>
+                            <span class="value">'.$prglang.'</span>
+                        </div>
+                        
+                        <div class="detail-item full-width">
+                            <span class="label">Other skill(s)</span>
+                            <span class="value">'.($otherskills ? $otherskills : 'None').'</span>
+                        </div>
+                    </div>
+                    
+                    <div class="button">
+                        <a href="apply.php" class="btn">Return to Form</a>
+                    </div>
+                </div>
+            </div>';
 
         } elseif(isset($missings)) {
-            echo "<p>Please fill in all required fields:</p>";
-            echo "<p>Missing required field(s):</p>";
-            echo "<ul>";
-            foreach($missings as $missing) {
-                echo "<li>".$missing."</li>";
-            }
-            echo "</ul>";
+            // Missing fields
+            echo 
+            '<div class="error-container">
+                <div class="error-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#e74c3c" opacity="0.2"/>
+                        <path d="M35 35 L65 65 M65 35 L35 65" stroke="#e74c3c" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h2>Missing Required Fields</h2>
+                <p>Please fill in all required fields:</p>
+                <ul class="error-list">';
+        foreach($missings as $missing) {
+            echo 
+            '<li>'.$missing.'</li>';
+        }
+            echo 
+                '</ul>
+                <div class="button">
+                    <a href="apply.php" class="btn">Return to Form</a>
+                </div>
+            </div>';
 
         } else {
-            echo "<p><strong>Error</strong></p>";
-            echo "<p>Please check the following field(s) again:</p>";
-            echo "<ul>";
-            foreach($errors as $error) {
-                echo "<li>".$error."</li>";
-            }
-            echo "</ul>";
+            // Validation errors
+            echo 
+            '<div class="error-container">
+                <div class="error-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="45" fill="#e74c3c" opacity="0.2"/>
+                        <path d="M35 35 L65 65 M65 35 L35 65" stroke="#e74c3c" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h2>Validation Errors</h2>
+                <p>Please check the following field(s) again:</p>
+                <ul class="error-list">';
+        foreach($errors as $error) {
+            echo 
+            '<li>'.$error.'</li>';
+        }   
+            echo 
+                '</ul>
+                <div class="button">
+                    <a href="apply.php" class="btn">Return to Form</a>
+                </div>
+            </div>';
         }
 
         mysqli_close($conn);
