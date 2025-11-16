@@ -32,6 +32,9 @@
                     <li>
                         <a href="delete_eois.php" class="inactive">Delete EOIs</a>
                     </li>
+                    <li>
+                        <a href="logout.php" class="inactive logout">Log Out</a>
+                    </li>
                 </ul>
             </div>
 
