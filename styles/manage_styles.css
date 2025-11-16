@@ -29,7 +29,9 @@ nav a {
   padding: 14px 16px;
   color: black;
   text-decoration: none;
-  font-weight: bold }
+  font-weight: bold;
+  transition: all 0.2s;
+}
 nav a:hover { background-color: rgb(107, 176, 107) }
 
 /* Main Section Styling */
@@ -81,6 +83,10 @@ main {
   color: white;
   border-left: 3px solid #3498db;
 }
+.logout { color: #e74c3c; }
+.logout:hover {
+  border-left-color: #e74c3c;
+  color: #de695c; }
 .active {font-weight: 600;}
 
 /* Main content area */

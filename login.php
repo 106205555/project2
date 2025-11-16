@@ -36,7 +36,12 @@
                             <input type="password" id="password" name="password" pattern="{1,20}" required>
                         </div>
                     </div>
-                    <span class="incorrect-msg">Incorrect username or password.</span>
+
+                    <?php
+                    if(isset($_GET['error'])) {
+                        echo "<span class='incorrect-msg'>Incorrect username or password.</span>";
+                    }
+                    ?>
                 </div>
                 <button type="submit" class="btn-submit">Log In</button>
             </form>

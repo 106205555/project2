@@ -40,6 +40,9 @@ if (!isset($_SESSION['username'])) {
                     <li>
                         <a href="delete_eois.php" class="active">Delete EOIs</a>
                     </li>
+                    <li>
+                        <a href="logout.php" class="inactive logout">Log Out</a>
+                    </li>
                 </ul>
             </div>
 
