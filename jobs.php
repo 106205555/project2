@@ -9,6 +9,8 @@
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Careers</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/switchanim.css">
 </head>
 
 <body>

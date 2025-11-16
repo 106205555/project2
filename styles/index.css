@@ -1,0 +1,109 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.container {
+    min-height: 70vh;
+    max-height: 100vh;
+    background-image: url("https://t3.ftcdn.net/jpg/02/35/09/74/360_F_235097419_oW8XQTFySkHTSvGsbRSn61VBRz5mxv1b.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    padding-left: 60px; 
+    padding-top: 60px;
+}
+
+.content-section {
+    flex: none; 
+    max-width: 600px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 50px;
+    background: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); 
+}
+
+.content-wrapper {
+    max-width: 520px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #2c2c2c;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #2c2c2c;
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+#offer {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #d32f2f;
+    color: white;
+    padding: 18px 35px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.cta-button:hover {
+    background: #b71c1c;
+}
+
+.cta-button::after {
+    content: '→';
+    font-size: 1.5rem;
+}
+
+
+
+
+.content-wrapper {
+    animation: fadeSlideIn 0.8s ease-out;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

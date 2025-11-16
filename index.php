@@ -7,13 +7,31 @@
     <meta name="description" content="Homepage of GrandTech company website">
     <meta name="keywords" content="GrandTech, home, info">
     <meta name="author" content="Duo Levellers">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrandTech - Home</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/navbar.css">
 </head>
 
 <body>
     <!-- Header section: Top section of the web -->
     <?php include 'header.inc'; ?>
+
+    <!DOCTYPE html>
+<html lang="en">
+    <div class="container">
+        <section class="content-section">
+            <div class="content-wrapper">
+                <h1>Powering Imagination.</h1>
+                <h2>Apply for a position now!</h2>
+                <p id="offer">Join our team before 20 November for special discounts on your next house!</p>
+                <a href="apply.php" class="cta-button">Apply now</a>
+            </div>
+        </section>
+    </div>
+</html>
+
 
     <!-- Main section: Contains the main content of the web -->
     <main>
@@ -45,12 +63,6 @@
     </main>
 
     <!-- Footer section: Bottom section of the web -->
-    <footer id="homefoot">
-        <hr>
-        <div id="footlink">
-            <p> GitHub link: <a href="https://github.com/106205555/project2" target="_blank">Click here</a> </p>
-        </div>
-        <p> &copy; 2025 GrandTech. All rights reserved. </p>
-    </footer>
+        <?php include 'footer.inc'; ?>
 </body>
 </html>
