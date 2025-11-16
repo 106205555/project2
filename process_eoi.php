@@ -17,12 +17,10 @@
     <main>
     <?php
     require_once("settings.php");
-
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
         // Checks if there is a table named 'eoi'. If not, creates one.
         $eoiquery1 = "SHOW TABLES LIKE 'eoi'";
