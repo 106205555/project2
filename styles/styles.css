@@ -9,12 +9,6 @@ body {
   background-color: rgb(241, 238, 244); 
   margin: 0 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-}
-
-
 /* Logo, banner & contact info */
 header img { 
   float: left; 
