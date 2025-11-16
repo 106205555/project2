@@ -53,9 +53,9 @@
                     } elseif($_POST["eoiaction"] == "listall") {
                         $query1 = "SELECT * FROM eoi";
                         $result1 = mysqli_query($conn, $query1);
+                        echo '<div class="message-box message-success">Execution successful!</div>';
+                        echo '<h2>All EOIs</h2>';
                         if (mysqli_num_rows($result1) > 0) {
-                            echo '<div class="message-box message-success">Execution successful!</div>';
-                            echo '<h2>All EOIs</h2>';
                             echo "<table>";
                             echo "<tr> <th>EOI ID</th> <th>Position</th> <th>First name</th> <th>Last name</th> <th>Street address</th> <th>Suburb/town</th> <th>State</th> <th>Postcode</th> <th>Email address</th> <th>Phone number</th> <th>Programming language(s)</th> <th>Other skill(s)</th> <th>Status</th> </tr>";
                             while ($row = mysqli_fetch_assoc($result1)) {
@@ -76,27 +76,24 @@
                                 echo "</tr>";
                             }
                             echo "</table>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         } else {
-                            echo "<p>🚫 No matching EOIs found.</p>";
+                            echo "<div class='warning-box'>No matching EOIs found.</div>";
                         }
+                        echo '<div class="action-buttons">';
+                        echo '<a href="list.php" class="btn">Return</a>';
+                        echo '</div>';
                     
                     // Lists all EOIs of same job
                     } elseif($_POST["eoiaction"] == "listjob") {
                         if(empty($_POST["jobrefnum1"])) {
                             echo "<div class='message-box message-error'>Please select a Job Reference Number to begin search.</div>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         } else {
                             $jobrefnum1 = clean_input($conn, $_POST["jobrefnum1"]);
                             $query2 = "SELECT * FROM eoi WHERE job_id = '".$jobrefnum1."'";
                             $result2 = mysqli_query($conn, $query2);
+                            echo '<div class="message-box message-success">Execution successful!</div>';
+                            echo '<h2>EOIs for Job Reference: <strong>' . $jobrefnum1 . '</strong></h2>';
                             if (mysqli_num_rows($result2) > 0) {
-                                echo '<div class="message-box message-success">Execution successful!</div>';
-                                echo '<h2>EOIs for Job Reference: <strong>' . $jobrefnum1 . '</strong></h2>';
                                 echo "<table>";
                                 echo "<tr> <th>EOI ID</th> <th>Position</th> <th>First name</th> <th>Last name</th> <th>Street address</th> <th>Suburb/town</th> <th>State</th> <th>Postcode</th> <th>Email address</th> <th>Phone number</th> <th>Programming language(s)</th> <th>Other skill(s)</th> <th>Status</th> </tr>";
                                 while ($row = mysqli_fetch_assoc($result2)) {
@@ -117,31 +114,28 @@
                                     echo "</tr>";
                                 }
                                 echo "</table>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             } else {
-                                echo "<p>🚫 No matching EOIs found.</p>";
+                                echo "<div class='warning-box'>No matching EOIs found.</div>";
                             }
                         }
+                        echo '<div class="action-buttons">';
+                        echo '<a href="list.php" class="btn">Return</a>';
+                        echo '</div>';
                     
                     // Lists all EOIs of same applicant name
                     } elseif($_POST["eoiaction"] == "listapplicant") {
                         // Empty
                         if(empty($_POST["firstname"]) && empty($_POST["lastname"])) {
                             echo "<div class='message-box message-error'>Please enter an applicant's name to begin search.</div>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         
                         // First name only
                         } elseif(!empty($_POST["firstname"]) && empty($_POST["lastname"])) {
                             $firstname = clean_input($conn, $_POST["firstname"]);
                             $query3 = "SELECT * FROM eoi WHERE first_name = '".$firstname."'";
                             $result3 = mysqli_query($conn, $query3);
+                            echo '<div class="message-box message-success">Execution successful!</div>';
+                            echo '<h2>Matching EOIs</h2>';
                             if (mysqli_num_rows($result3) > 0) {
-                                echo '<div class="message-box message-success">Execution successful!</div>';
-                                echo '<h2>Matching EOIs</h2>';
                                 echo "<table>";
                                 echo "<tr> <th>EOI ID</th> <th>Position</th> <th>First name</th> <th>Last name</th> <th>Street address</th> <th>Suburb/town</th> <th>State</th> <th>Postcode</th> <th>Email address</th> <th>Phone number</th> <th>Programming language(s)</th> <th>Other skill(s)</th> <th>Status</th> </tr>";
                                 while ($row = mysqli_fetch_assoc($result3)) {
@@ -162,11 +156,8 @@
                                     echo "</tr>";
                                 }
                                 echo "</table>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             } else {
-                                echo "<p>🚫 No matching EOIs found.</p>";
+                                echo "<div class='warning-box'>No matching EOIs found.</div>";
                             }
 
                         // Last name only
@@ -174,9 +165,9 @@
                             $lastname = clean_input($conn, $_POST["lastname"]);
                             $query4 = "SELECT * FROM eoi WHERE last_name = '".$lastname."'";
                             $result4 = mysqli_query($conn, $query4);
+                            echo '<div class="message-box message-success">Execution successful!</div>';
+                            echo '<h2>Matching EOIs</h2>';
                             if (mysqli_num_rows($result4) > 0) {
-                                echo '<div class="message-box message-success">Execution successful!</div>';
-                                echo '<h2>Matching EOIs</h2>';
                                 echo "<table>";
                                 echo "<tr> <th>EOI ID</th> <th>Position</th> <th>First name</th> <th>Last name</th> <th>Street address</th> <th>Suburb/town</th> <th>State</th> <th>Postcode</th> <th>Email address</th> <th>Phone number</th> <th>Programming language(s)</th> <th>Other skill(s)</th> <th>Status</th> </tr>";
                                 while ($row = mysqli_fetch_assoc($result4)) {
@@ -197,11 +188,8 @@
                                     echo "</tr>";
                                 }
                                 echo "</table>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             } else {
-                                echo "<p>🚫 No matching EOIs found.</p>";
+                                echo "<div class='warning-box'>No matching EOIs found.</div>";
                             }
                         
                         // Both names given
@@ -210,9 +198,9 @@
                             $lastname = clean_input($conn, $_POST["lastname"]);
                             $query5 = "SELECT * FROM eoi WHERE first_name = '".$firstname."' AND last_name = '".$lastname."'";
                             $result5 = mysqli_query($conn, $query5);
+                            echo '<div class="message-box message-success">Execution successful!</div>';
+                            echo '<h2>Matching EOIs</h2>';
                             if (mysqli_num_rows($result5) > 0) {
-                                echo '<div class="message-box message-success">Execution successful!</div>';
-                                echo '<h2>Matching EOIs</h2>';
                                 echo "<table>";
                                 echo "<tr> <th>EOI ID</th> <th>Position</th> <th>First name</th> <th>Last name</th> <th>Street address</th> <th>Suburb/town</th> <th>State</th> <th>Postcode</th> <th>Email address</th> <th>Phone number</th> <th>Programming language(s)</th> <th>Other skill(s)</th> <th>Status</th> </tr>";
                                 while ($row = mysqli_fetch_assoc($result5)) {
@@ -233,38 +221,32 @@
                                     echo "</tr>";
                                 }
                                 echo "</table>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             } else {
-                                echo "<p>🚫 No matching EOIs found.</p>";
+                                echo "<div class='warning-box'>No matching EOIs found.</div>";
                             }
                         }
+                        echo '<div class="action-buttons">';
+                        echo '<a href="list.php" class="btn">Return</a>';
+                        echo '</div>';
                     
                     // Deletes all EOIs of same job
                     } elseif($_POST["eoiaction"] == "deletejob") {
                         if(empty($_POST["jobrefnum2"])) {
                             echo "<div class='message-box message-error'>Please select a Job Reference Number to begin.</div>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         } else {
                             $jobrefnum2 = clean_input($conn, $_POST["jobrefnum2"]);
                             $query6 = "DELETE FROM eoi WHERE job_id = '".$jobrefnum2."'";
                             $result6 = mysqli_query($conn, $query6);
                             echo "<div class='message-box message-success'>Successfully deleted all EOIs associated with Job Reference Number <strong>".$jobrefnum2."</strong>.</div>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         }
+                        echo '<div class="action-buttons">';
+                        echo '<a href="delete_eois.php" class="btn">Return</a>';
+                        echo '</div>';
 
                     // Updates EOI status
                     } else {
                         if(empty($_POST["eoiid"]) || empty($_POST["status"])) {
                             echo "<div class='message-box message-error'>Please provide both EOI ID and status.</div>";
-                            echo '<div class="action-buttons">';
-                            echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                            echo '</div>';
                         } else {
                             $eoiid = clean_input($conn, $_POST["eoiid"]);
                             $status = clean_input($conn, $_POST["status"]);
@@ -272,9 +254,6 @@
                             $result7 = mysqli_query($conn, $query7);
                             if(mysqli_num_rows($result7) == 0) {
                                 echo "<div class='message-box message-error'>Invalid EOI ID.</div>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             } else {
                                 $query8 = "UPDATE eoi SET status = '".$status."' WHERE eoi_id = ".$eoiid;
                                 $result8 = mysqli_query($conn, $query8);
@@ -302,11 +281,11 @@
                                     echo "</tr>";
                                 }
                                 echo "</table>";
-                                echo '<div class="action-buttons">';
-                                echo '<a href="manage.php" class="btn">Back to Dashboard</a>';
-                                echo '</div>';
                             }
                         }
+                        echo '<div class="action-buttons">';
+                        echo '<a href="update_status.php" class="btn">Return</a>';
+                        echo '</div>';
                     }
                 } else {
                     header('Location: manage.php');
