@@ -295,6 +295,17 @@ main {
   color: white;
 }
 
+/* Login page */
+.login-page {
+  max-width: 800px;
+  margin: auto;
+}
+.login-page-title { text-align: center; }
+.incorrect-msg {
+  font-size: 14px;
+  color: red;
+}
+
 /* Table Styling */
 table, th, td { 
   margin-left: auto;

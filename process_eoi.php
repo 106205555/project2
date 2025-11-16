@@ -17,12 +17,13 @@
     <main>
     <?php
     require_once("settings.php");
-    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
 
     if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+
         // Checks if there is a table named 'eoi'. If not, creates one.
         $eoiquery1 = "SHOW TABLES LIKE 'eoi'";
         $eoicheck = mysqli_query($conn, $eoiquery1);
@@ -180,6 +181,8 @@
             }
             echo "</ul>";
         }
+
+        mysqli_close($conn);
     } else {
         header('Location: apply.php');
     }
@@ -192,8 +195,6 @@
         $data = mysqli_real_escape_string($conn, $data);
         return $data;
     }
-
-    mysqli_close($conn);
     ?>
     </main>
 

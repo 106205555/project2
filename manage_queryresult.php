@@ -39,12 +39,13 @@
             <div class="dashboard-main">
                 <?php
                 require_once("settings.php");
-                $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-                if (!$conn) {
-                    die("Connection failed: " . mysqli_connect_error());
-                }
 
                 if($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+
                     // Checks if an EOI action has been selected
                     if(empty($_POST["eoiaction"])) {
                         echo "<p>Please select a database action to begin.</p>";
@@ -287,6 +288,8 @@
                         echo '<a href="update_status.php" class="btn">Return</a>';
                         echo '</div>';
                     }
+
+                    mysqli_close($conn);
                 } else {
                     header('Location: manage.php');
                 }
@@ -299,8 +302,6 @@
                     $data = mysqli_real_escape_string($conn, $data);
                     return $data;
                 }
-
-                mysqli_close($conn);
                 ?>
 
                 <!-- Footer section: Bottom section of the web -->
