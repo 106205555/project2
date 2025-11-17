@@ -15,6 +15,8 @@ if (!isset($_SESSION['username'])) {
     <meta name="author" content="Duo Levellers">
     <title>GrandTech - Management</title>
     <link rel="stylesheet" href="styles/manage_styles.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/switchanim.css">
 </head>
 
 <body>

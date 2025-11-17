@@ -22,7 +22,9 @@ header img {
 nav { 
   clear: both;
   background-color: rgb(22, 141, 22);
-  overflow: hidden }
+  overflow: hidden;
+  position: sticky;
+  top: 0; }
 nav a { 
   float: left;
   display: block;
@@ -215,6 +217,15 @@ input[type="radio"], input[type="checkbox"] {
 #members, #png { float: right }
 #ourclass, #contributions, #members, #png { width: 46% }
 #grph {border: 2px solid black;}
+
+/* Enhancements */
+.login-feat { line-height: 1.5; }
+.login-pic {
+  text-align: center;
+  display: flex; }
+.login-pic img {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  margin-bottom: 10px; }
 
 /* Footer Styling */
 footer { margin-top: 90px }
