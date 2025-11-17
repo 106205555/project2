@@ -63,10 +63,10 @@
             <p>Here is a brief description of each member's contributions to the websites:</p>
             <dl>
                 <dt>Nguyen Hoang Duy</dt>
-                <dd>Home page, common menu section, group details page, CSS styling</dd>
+                <dd>Homepage, Menu section, Group Details page, CSS styling, dynamic Careers page, Login feature</dd>
                 <dd><br></dd>
                 <dt>Le Minh Hieu</dt>
-                <dd>Job descriptions and application pages, CSS styling</dd>
+                <dd>Careers and Application pages, CSS styling, After-apply page, Management pages</dd>
             </dl>
         </section>
 
