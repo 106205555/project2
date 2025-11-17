@@ -8,6 +8,7 @@
         <li><a href="about.php">About</a> </li>
         <li><a href="jobs.php">Careers</a> </li>
         <li><a href="apply.php">Application</a></li>
+        <li><a href="enhancements.php">Enhancements</a></li>
         <li><a href="manage.php">Admin</a></li>
         <li><a href="login.php">Login</a></li>
         <li><a href="https://github.com/106205555/project2" target="_blank">GitHub</a></li>
